@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promoción de Apps de Streaming</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init('zVL1E1HDUgsTYEj1N');
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Mensaje de alerta -->
+<div id="alert-message" class="alert-message"></div>
+
+    <nav>
+        <button class="menu-toggle">☰</button>
+        <ul>
+            <li id="logo"><span>CUENTAS STREAMING</span></li>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="mobile-logo">
+            <span>CUENTAS STREAMING</span>
+        </div>
+    </nav>
+
+    <!-- Video de portada -->
+    <section id="inicio">
+        <video src="https://www.dropbox.com/scl/fi/44azo8hv52r6i36c5mwvq/VideoPortada.mp4?rlkey=w6jnvhaoy2vc7gyz7y4fqo9zi&st=duspsr9o&raw=1" autoplay muted loop class="video-portada"></video>
+        
+        <div class="descripcion">
+            Explora nuestras ofertas de apps de streaming y elige la que mejor se adapte a tus necesidades
+            ¡Disfruta de estas aplicaciones a precios accesibles y aprovecha nuestras excelentes promociones!
+            MovistarTV, DirecTV Go tienen transmisión en vivo de TNT SPORT premium y Disney tambien tiene canales 
+            de desportes transmisión en vivo. Gracias por tu preferencia.
+
+        </div>
+        
+        
+        <p>A continuación verás nuestras ofertas que tenemos para ti, espero que te gusten y las disfrustes. </p>
+        
+    </section>
+
+    <div class="container" id="servicios">
+        <h1>Elige tu App de Streaming Favorita</h1>
+        
+        <div class="app-list">
+            <div class="app-item">
+                <h2>Netflix</h2>
+                <img src="netflix.png" alt="Netflix" class="app-image">
+                <p>Precio: $4.000,(USD,4)/mes</p>
+                <button type="button" onclick="selectApp('Netflix', 4000)">Seleccionar</button>
+            </div>
+            <div class="app-item">
+                <h2>Disney+</h2>
+                <img src="disneyplus.png" alt="Disney+" class="app-image">
+                <p>Precio: $4.000, (USD, 4)/mes</p>
+                <button type="button" onclick="selectApp('Disney+', 4000)">Seleccionar</button>
+            </div>
+            <div class="app-item">
+                <h2>Amazon Prime Video</h2>
+                <img src="amazonprime.png" alt="Amazon Prime Video" class="app-image">
+                <p>Precio: $3.000, (USD, 3)/mes</p>
+                <button type="button" onclick="selectApp('Amazon Prime Video', 3000)">Seleccionar</button>
+            </div>
+            <div class="app-item">
+                <h2>Mivistar TV</h2>
+                <img src="mivistar.png" alt="Mivistar TV" class="app-image">
+                <p>Precio: $4.000(USD, 4)/mes</p>
+                <button type="button" onclick="selectApp('Mivistar TV', 4000)">Seleccionar</button>
+            </div>
+            <div class="app-item">
+                <h2>Max</h2>
+                <img src="max.png" alt="Max" class="app-image">
+                <p>Precio: $3.000(USD, 3)/mes</p>
+                <button type="button" onclick="selectApp('Max', 3000)">Seleccionar</button>
+            </div>
+            <div class="app-item">
+                <h2>Zapping TV</h2>
+                <img src="zapping.png" alt="Zapping TV" class="app-image">
+                <p>Precio: $2.000(USD, 2)/mes</p>
+                <button type="button" onclick="selectApp('Zapping TV', 2000)">Seleccionar</button>
+            </div>
+            <div class="app-item">
+                <h2>DirecTV Go</h2>
+                <img src="directv.png" alt="DirecTV Go" class="app-image">
+                <p>Precio: $4.000(USD, 4)/mes</p>
+                <button type="button" onclick="selectApp('DirecTV Go', 4000)">Seleccionar</button>
+            </div>
+            <div class="app-item">
+                <h2>Crunchyroll</h2>
+                <img src="crunchyroll.png" alt="Crunchyroll" class="app-image">
+                <p>Precio: $2.000(USD, 2)/mes</p>
+                <button type="button" onclick="selectApp('Crunchyroll', 2000)">Seleccionar</button>
+            </div>
+            <div class="app-item">
+                <h2>Paramount</h2>
+                <img src="paramount.png" alt="Paramount" class="app-image">
+                <p>Precio: $2.000(USD, 2)/mes</p>
+                <button type="button" onclick="selectApp('Paramount', 2000)">Seleccionar</button>
+            </div>
+            <div class="app-item">
+                <h2>Universal</h2>
+                <img src="universal.png" alt="Universal" class="app-image">
+                <p>Precio: $3.000(USD, 3)/mes</p>
+                <button type="button" onclick="selectApp('Universal', 3000)">Seleccionar</button>
+            </div>
+        </div>
+
+        <div id="selected-app">
+            <h2>App seleccionada:</h2>
+            <p id="app-name">Ninguna</p>
+            <p id="app-price"></p>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div class="form-container" id="contacto">
+            <form id="form">
+                <div class="field">
+                    <label for="from_name">Nombre</label>
+                    <input type="text" name="from_name" id="from_name" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div class="field">
+                    <label for="email_id">Correo Electrónico</label>
+                    <input type="email" name="email_id" id="email_id" placeholder="ejemplo@mail.com" required>
+                </div>
+                <div class="field">
+                    <label for="app">App Seleccionada</label>
+                    <input type="text" name="app" id="app" readonly>
+                </div>
+                <div class="field">
+                    <label for="number">Teléfono</label>
+                    <input type="text" name="number" id="number" placeholder="+56912345678" maxlength="12" required>
+                </div>                
+                <div class="field">
+                    <label for="message">Mensaje</label>
+                    <input type="text" name="message" id="message" placeholder="Ingresa tu cotización">
+                </div>
+                <input type="submit" id="button" value="Enviar Solicitud">
+            </form>
+        </div>
+
+        <!-- Mensaje de confirmación -->
+        <div id="confirmation-message" style="display: none;">
+            <h2>Registro Exitoso</h2>
+            <p id="confirmation-text"></p>
+            <a href="#inicio">Volver a la página principal</a>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>CUENTAS STREAMING</p>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-center">
+                <p>Contáctanos</p>
+                <p><a href="tel:+56944848472">+569 4484 8472</a></p>
+                <p><a href="mailto:cavsk0808@gmail.com">cavsk0808@gmail.com</a></p>
+                <p>Todos los derechos reservados, CUENTAS STREAMING</p>
+            </div>
+            <div class="footer-right">
+                <img src="logo.png" alt="Logo de STREAMING VILLEGAS">
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

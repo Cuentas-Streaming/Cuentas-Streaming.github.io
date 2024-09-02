@@ -1,0 +1,320 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(133, 133, 253);
+    color: #333;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* Barra de navegación */
+nav {
+    background-color: #333;
+    padding: 10px 20px;
+    position: relative; /* Necesario para posicionar el botón de menú */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li#logo {
+    margin-right: auto;
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+}
+
+nav ul li#logo span {
+    pointer-events: none;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo del video de portada */
+.video-portada {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.descripcion {
+    max-width: 1000px; /* Ajusta el ancho máximo del contenedor */
+    margin: 20px auto; /* Centra el contenedor horizontalmente con margen superior e inferior */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+    color: #333;
+}
+/* Contenedor general */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Lista de apps */
+.app-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.app-item {
+    background-color: #eee;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.app-image {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Botones */
+button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:  rgb(133, 133, 253);
+}
+
+/* Estilo para el mensaje de alerta */
+.alert-message {
+    display: none; /* Oculto por defecto */
+    background-color: #ffcc00; /* Color de fondo para la alerta */
+    color: #333; /* Color del texto de la alerta */
+    padding: 10px;
+    border: 1px solid #e5a000; /* Borde de la alerta */
+    border-radius: 5px;
+    position: fixed; /* Posición fija para que se muestre en la parte superior */
+    top: 10px; /* Espacio desde la parte superior */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Centrado horizontal */
+    z-index: 1000; /* Asegura que la alerta esté por encima de otros elementos */
+}
+
+
+/* Estilo del formulario */
+.form-container {
+    margin-top: 30px;
+}
+
+input[type="text"], input[type="email"], input[type="submit"] {
+    padding: 10px;
+    margin: 5px 0;
+    width: 99%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #0275d8;
+    color: #fff;
+    cursor: pointer;
+    width: 99%;
+}
+
+input[type="submit"]:hover {
+    background-color: #025aa5;
+}
+
+/* Mensaje de confirmación */
+#confirmation-message {
+    margin-top: 20px;
+    display: none; /* Oculto por defecto */
+}
+
+/* Desplazamiento suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilo del pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-left ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-left ul li {
+    margin-bottom: 5px;
+}
+
+.footer-left ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-left ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-center a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-right img {
+    height: 80px;
+    width: 90px;
+    margin-bottom: 10px;
+}
+
+
+
+
+/* Estilo del menú en dispositivos móviles */
+.menu-toggle {
+    display: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        display: none; /* Ocultamos el menú en dispositivos móviles por defecto */
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Ajusta según la altura del nav */
+        left: 0;
+        background-color: #333;
+        padding: 10px 0;
+    }
+    
+    nav ul.show {
+        display: flex; /* Mostramos el menú cuando se activa */
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        font-size: 18px;
+    }
+}
+
+/* Estilo para el botón de menú en dispositivos móviles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+}
+
+/* Estilo para mostrar el menú en dispositivos móviles */
+nav ul.show {
+    display: block;
+}
+
+/* Estilo del logo de texto en pantallas pequeñas */
+.mobile-logo {
+    display: none;
+    color: #fff;
+    font-size: 19px;
+    font-weight: bold;
+    text-align: right;
+    padding: 0px;
+}
+
+/* Estilos específicos para dispositivos móviles */
+@media (max-width: 768px) {
+    .mobile-logo {
+        display: block;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px; /* Ajusta según el tamaño del botón de menú */
+        right: 0;
+        background-color: #333;
+        width: 100%;
+        z-index: 1;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Asegúrate de que los enlaces sean clickeables en dispositivos móviles */
+    nav ul li a {
+        display: block;
+        padding: 10px;
+        border-bottom: 1px solid #444;
+
+    
+    }
+    
+    
+}
+
+
